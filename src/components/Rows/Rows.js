@@ -1,5 +1,5 @@
 import React from 'react'
-import Row from "../../components/Row/Row.js"
+import Row from "./Row/Row.js"
 import requests from "../../requests"
 
 const Rows = () => {
