@@ -38,7 +38,7 @@ const Footer = () => {
                         className= {classes.icon}
                         endIcon={<PublicIcon/>}
                         variant="contained"
-                        style={{backgroundColor:"#000080", color: "white"}}
+                        style={{backgroundColor:"#000080", color: "whiteg"}}
                     >
                         Personal Website
                     </Button>
