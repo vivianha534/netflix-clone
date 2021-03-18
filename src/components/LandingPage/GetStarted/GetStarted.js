@@ -23,7 +23,7 @@ const GetStarted = () => {
                 </button>
             </div>
             <div className="getStartedContents">
-                <div className="description">
+                <div className="getStartedDescription">
                     <h1>Unlimited movies, TV shows, and more.</h1>
                     <p>Watch anywhere. Cancel anytime</p>
                 </div>
