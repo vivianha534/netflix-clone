@@ -1,0 +1,60 @@
+.darkerImageOverlay{
+    background: rgba(0,0,0, 0.75);
+    height:100%;
+    width: 100%;
+}
+
+.getStarted{
+    display: flex;
+    object-fit:contain;
+    height: 90vh;
+    color:white;
+    border-bottom: 10px solid #242424;
+}
+
+.getStartedHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.logo{
+    width: 100px;
+    object-fit:contain;
+}
+
+button{
+    background-color: red;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.signIn{
+    padding: 2px 20px;
+    font-size: 20px;
+}
+
+.getStartedContents{
+    height:100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.getStartedDescription{
+    text-align: center;
+    font-size: 2.5rem;
+    max-width: 800px;
+}
+
+.getStartedButton{
+    padding: 15px 25px;
+    font-size: 50px;
+    margin: 50px 2px;
+    cursor: pointer;
+    font-weight: 500;
+}

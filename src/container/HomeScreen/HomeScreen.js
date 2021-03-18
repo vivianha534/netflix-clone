@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBar from "../../components/NavBar/NavBar.js"
-import Banner from "../../components/Banner/Banner.js"
-import Rows from "../../components/Rows/Rows.js"
-import Footer from "../../components/Footer/Footer.js"
+import NavBar from "../../components/NavFooter/NavBar/NavBar.js"
+import Banner from "../../components/HomeScreen/Banner/Banner.js"
+import Rows from "../../components/HomeScreen/Rows/Rows.js"
+import Footer from "../../components/NavFooter/Footer/Footer.js"
 import "./HomeScreen.css"
 
 const HomeScreen = () => {

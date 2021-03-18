@@ -1,0 +1,32 @@
+.featureCard{
+    color: white;
+    display: flex;
+    justify-content: center;
+    border-bottom: 10px solid #242424;
+    padding: 80px;
+}
+
+.featureCardReverse{
+    color: white;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    border-bottom: 10px solid #242424;
+    padding: 80px;
+}
+
+.featureDescription{
+    padding: 100px 20px;
+    font-size: 2em;
+    max-width: 500px;
+}
+
+p{
+    padding-top: 20px;
+}
+
+.img{
+    padding: 20px;
+    width: 500px;
+    object-fit:contain;
+}
