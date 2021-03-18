@@ -1,6 +1,9 @@
 import React from 'react'
 import GetStarted from "../../components/LandingPage/GetStarted/GetStarted.js"
 import FeatureCard from "../../components/LandingPage/FeatureCard/FeatureCard.js"
+import FAQ from "../../components/LandingPage/FAQ/FAQ.js"
+import Footer from "../../components/NavFooter/Footer/Footer.js"
+import "./LandingPage.css"
 
 const featureData = [
     {
@@ -25,7 +28,7 @@ const featureData = [
 
 const LandingPage = () => {
     return (
-        <div>
+        <div className="LandingPage">
             <GetStarted/>
             {featureData.map((feature, idx) => (
                 <FeatureCard 
@@ -36,8 +39,8 @@ const LandingPage = () => {
                     id={idx}
                 />
             ))}
-            {/* FAQ */}
-            {/* Footer */}
+            <FAQ/>
+            <Footer/>
         </div>
     )
 }
