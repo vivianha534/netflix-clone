@@ -14,7 +14,7 @@ const GetStarted = () => {
             <div className="darkerImageOverlay">
             <div className = "getStartedHeader">
                 <img
-                    className="navLogo"
+                    className="logo"
                     src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png"
                     alt="Netflix logo"
                 />

@@ -18,17 +18,22 @@
     padding: 25px;
 }
 
+.logo{
+    width: 100px;
+    object-fit:contain;
+}
+
 button{
     background-color: red;
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
+    border-radius: 10px;
 }
 .signIn{
     padding: 2px 20px;
     font-size: 20px;
-    border-radius: 10px;
 }
 
 .getStartedContents{
@@ -43,6 +48,7 @@ button{
 .description{
     text-align: center;
     font-size: 2.5rem;
+    max-width: 800px;
 }
 
 .getStartedButton{
