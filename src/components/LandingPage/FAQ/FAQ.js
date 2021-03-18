@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
   description:{
     backgroundColor: "#242424",
     color: "white",
+  },
+  contactLink:{
+      marginTop: "14px",
+      paddingLeft: "10px",
   }
 }));
 
@@ -94,15 +98,17 @@ export default function FAQ() {
             <Typography className={classes.heading}>What technology did you use?</Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.description}>
-            <Typography>
-                Frontend: React JS, CSS, Material UI, and Redux (will be implemented later)
-            </Typography>
-            <Typography>
-                API: axios
-            </Typography>
-            <Typography>
-                Backend: Firebase Firestore (will be implemented later), and TMDB
-            </Typography>
+            <ul>
+                <li>
+                    Frontend: React JS, CSS, Material UI, and Redux (will be implemented later)
+                </li>
+                <li>
+                    API: axios
+                </li>
+                <li>
+                    Backend: Firebase Firestore (will be implemented later), and TMDB
+                </li>
+            </ul>
             </AccordionDetails>
         </Accordion>
         <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
@@ -115,14 +121,27 @@ export default function FAQ() {
             <Typography className={classes.heading}>Where can I get in contact with you?</Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.description}>
-            <Typography>
-                You can reach me through:
-            </Typography>
-            <div>
-                <a href = "mailto: vivian.ha534@gmail.com" target="__blank"> email </a>
-                <a href = "https://www.linkedin.com/in/vivian-ha-74abb8194/" target="__blank"> linkedIn </a>
-            </div>
-            </AccordionDetails>
+                <Typography>
+                    You can reach me through:
+                </Typography>
+                <a className={classes.contactLink} href = "mailto: vivian.ha534@gmail.com" target="__blank">
+                    <Button
+                        startIcon={<MailOutlineIcon/>}
+                        style={{color: "white"}}
+                    >
+                        email
+                    </Button>
+                </a>
+                
+                <a className={classes.contactLink} href = "https://www.linkedin.com/in/vivian-ha-74abb8194/" target="__blank">
+                    <Button
+                        startIcon={<LinkedInIcon/>}
+                        style={{color: "white"}}
+                    >
+                        LinkedIn
+                    </Button>
+                </a>
+                </AccordionDetails>
         </Accordion>
         </div>
     </div>
