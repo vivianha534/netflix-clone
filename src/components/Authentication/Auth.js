@@ -8,6 +8,7 @@ import Input from './Input';
 // import {useDispatch} from 'react-redux'
 import{useHistory} from'react-router-dom'
 // import {signIn, signUp} from "../../actions/auth"
+import fireAuth from "../../firebase.config.js"
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -52,11 +53,10 @@ const initialFormState = {
 const Auth = () => {
     const classes = useStyles();
     // const dispatch = useDispatch();
-    // const history = useHistory();
+    const history = useHistory();
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false)
     const [formData, setFormData] = useState(initialFormState)
-    console.log(formData)
 
     //whever you're changing the state based on the old state need a callback function
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
@@ -67,11 +67,29 @@ const Auth = () => {
         
         if(isSignup){
             console.log("signing up")
-            //we pass history so we can navigate once something happens
-            //dispatch(signUp(formData, history))
+            fireAuth.createUserWithEmailAndPassword(formData.email, formData.password)
+                .then((userCredential)=>{
+                    var user = userCredential.user
+                })
+                .catch((error) =>{
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log("error code:", errorCode, " error message:", errorMessage)
+                })
+
+                window.location.reload(true);
         }else{
-            console.log("singing in")
-            //dispatch(signIn(formData,history))
+            console.log("signing in")
+            fireAuth.signInWithEmailAndPassword(formData.email, formData.password)
+                .then((userCredential) =>{
+                    var user = userCredential.user;
+                })
+                .catch((error) =>{
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log("error code:", errorCode, " error message:", errorMessage)
+                })
+                history.push("/")
         }
     }
 
@@ -83,7 +101,7 @@ const Auth = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup)
         setShowPassword(false)
     }
-    
+ 
     return (
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>
