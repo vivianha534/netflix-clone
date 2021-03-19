@@ -2,8 +2,10 @@ import React from 'react'
 import Auth from "../../components/Authentication/Auth.js"
 import NavBar from "../../components/NavFooter/NavBar/NavBar.js"
 import "./AuthPage.css"
+import {Link} from "react-router-dom"
 
 const AuthPage = () => {
+
     return (
         <div
             className="authPage"
@@ -14,9 +16,15 @@ const AuthPage = () => {
             }}
         >
             <div className="darkerImageOverlay"></div>
-            <NavBar/>
+            <Link to = "/">
+                <img
+                    className="navLogo"
+                    src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png"
+                    alt="Netflix logo"
+                />
+            </Link>
             <div className="authForm">
-            <Auth />
+                <Auth />
             </div>
         </div>
     )

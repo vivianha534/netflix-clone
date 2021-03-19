@@ -1,5 +1,6 @@
 import React from 'react'
 import "./GetStarted.css"
+import {Link} from "react-router-dom"
 
 const GetStarted = () => {
     return (
@@ -18,18 +19,22 @@ const GetStarted = () => {
                     src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png"
                     alt="Netflix logo"
                 />
-                <button className="signIn">
-                    Sign In
-                </button>
+                <Link to="/auth">
+                    <button className="signIn">
+                        Sign In
+                    </button>
+                </Link>
             </div>
             <div className="getStartedContents">
                 <div className="getStartedDescription">
                     <h1>Unlimited movies, TV shows, and more.</h1>
                     <p>Watch anywhere. Cancel anytime</p>
                 </div>
-                <button className="getStartedButton">
-                    Get Started
-                </button>
+                <Link to = "/auth">
+                    <button className="getStartedButton">
+                        Get Started
+                    </button>
+                </Link>
             </div>
             </div>
         </header>

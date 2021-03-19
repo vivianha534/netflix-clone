@@ -56,26 +56,27 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false)
     const [formData, setFormData] = useState(initialFormState)
+    console.log(formData)
 
     //whever you're changing the state based on the old state need a callback function
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
 
     const handleSubmit = (e) =>{
     //     //prevents browser refresh
-    //     e.preventDefault( )
+        e.preventDefault( )
         
-    //     if(isSignup){
-    //         //we pass history so we can navigate once something happens
-    //         dispatch(signUp(formData, history))
-    //     }else{
-    //         dispatch(signIn(formData,history))
+        if(isSignup){
+            console.log("signing up")
+            //we pass history so we can navigate once something happens
+            //dispatch(signUp(formData, history))
+        }else{
+            console.log("singing in")
+            //dispatch(signIn(formData,history))
+        }
     }
 
-    // }
-
     const handleChange = (e) =>{
-    //     setFormData({...formData, [e.target.name]: e.target.value })
-
+         setFormData({...formData, [e.target.name]: e.target.value })
     }
 
     const switchMode = () => {
@@ -99,7 +100,7 @@ const Auth = () => {
                             </>
                         )}
                          <Input name="email" label="Email Address" handleChange={handleChange} type="email" />
-            <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
+                         <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
                         { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" /> }
                     </Grid>
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
