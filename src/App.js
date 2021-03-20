@@ -2,10 +2,13 @@ import React from "react"
 import HomeScreen from "./container/HomeScreen/HomeScreen.js"
 import LandingPage from "./container/LandingPage/LandingPage.js"
 import AuthPage from "./container/AuthPage/AuthPage.js"
-import {Switch, Route} from "react-router-dom"
+import {Switch, Route, useHistory, Redirect} from "react-router-dom"
 import "./App.css"
 
 function App() {
+  var user = JSON.parse(localStorage.getItem('profile'))
+  const history = useHistory()
+
   return (
     <div className="App">
       <Switch>
@@ -13,10 +16,10 @@ function App() {
           <LandingPage/>
         </Route>
         <Route exact path="/home-screen">
-          <HomeScreen/>
+          {user ? <HomeScreen/> : <Redirect to = "/" />}
         </Route>
         <Route exact path = "/auth">
-          <AuthPage/>
+            {!user ? <AuthPage/> : <Redirect to = "/home-screen" />}
         </Route>
       </Switch>
     </div>
