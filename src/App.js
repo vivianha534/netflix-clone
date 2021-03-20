@@ -3,7 +3,6 @@ import HomeScreen from "./container/HomeScreen/HomeScreen.js"
 import LandingPage from "./container/LandingPage/LandingPage.js"
 import AuthPage from "./container/AuthPage/AuthPage.js"
 import {Switch, Route} from "react-router-dom"
-
 import "./App.css"
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
         <Route exact path="/">
           <LandingPage/>
         </Route>
-        <Route exact path="/homeScreen">
+        <Route exact path="/home-screen">
           <HomeScreen/>
         </Route>
         <Route exact path = "/auth">

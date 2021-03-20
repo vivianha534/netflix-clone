@@ -3,12 +3,9 @@ import {TextField, Avatar, Button, Paper, Grid, Typography, Container} from '@ma
 import {makeStyles,createStyles} from "@material-ui/core/styles"
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input';
-// import {GoogleLogin} from 'react-google-login';
-// import Icon from './icon'
-// import {useDispatch} from 'react-redux'
 import{useHistory} from'react-router-dom'
-// import {signIn, signUp} from "../../actions/auth"
-import fireAuth from "../../firebase.config.js"
+import {useDispatch, useSelector} from 'react-redux'
+import {signIn, signUp} from "../../store/actions.js"
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -52,7 +49,7 @@ const initialFormState = {
 
 const Auth = () => {
     const classes = useStyles();
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const history = useHistory();
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false)
@@ -61,35 +58,24 @@ const Auth = () => {
     //whever you're changing the state based on the old state need a callback function
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
 
+    const clearField = () => {
+        console.log("clear field")
+        setFormData(initialFormState)
+        console.log(formData)
+    }
+      
     const handleSubmit = (e) =>{
     //     //prevents browser refresh
         e.preventDefault( )
         
         if(isSignup){
             console.log("signing up")
-            fireAuth.createUserWithEmailAndPassword(formData.email, formData.password)
-                .then((userCredential)=>{
-                    var user = userCredential.user
-                })
-                .catch((error) =>{
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.log("error code:", errorCode, " error message:", errorMessage)
-                })
+            dispatch(signUp(formData, history))    
 
-                window.location.reload(true);
         }else{
             console.log("signing in")
-            fireAuth.signInWithEmailAndPassword(formData.email, formData.password)
-                .then((userCredential) =>{
-                    var user = userCredential.user;
-                })
-                .catch((error) =>{
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.log("error code:", errorCode, " error message:", errorMessage)
-                })
-                history.push("/")
+
+            dispatch(signIn(formData, history))    
         }
     }
 
