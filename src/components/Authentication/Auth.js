@@ -5,7 +5,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input';
 import{useHistory} from'react-router-dom'
 import {useDispatch} from 'react-redux'
-import {signIn, signUp} from "../../store/actions.js"
+import {signIn, signUp, forgotPass} from "../../store/actions.js"
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -76,6 +76,11 @@ const Auth = () => {
         }
     }
 
+    const handleForgotPass = () =>{
+        dispatch(forgotPass(formData, history))
+        console.log("Send verification email")
+    }
+
     const handleChange = (e) =>{
          setFormData({...formData, [e.target.name]: e.target.value })
     }
@@ -111,6 +116,11 @@ const Auth = () => {
                         <Grid item>
                             <Button variant="outlined" onClick={switchMode} className={classes.switchMode}>
                                 {isSignup ? 'Already have an account? Sign In' : "Dont have an account? Sign Up"}
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button variant = "outlined" onClick={handleForgotPass} className={classes.switchMode}>
+                                {!isSignup && "Forgot password"}
                             </Button>
                         </Grid>
                     </Grid>

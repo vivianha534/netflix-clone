@@ -46,3 +46,22 @@ export const signUp = (formData, history) => async(dispatch) => {
         console.log(error)
     }
 }
+
+export const forgotPass = (formData, history) => async(dispatch)=>{
+    try{
+
+        fireAuth.sendPasswordResetEmail(formData.email).then(function() {
+            // Email sent.
+            console.log(formData.email)
+          }).catch(function(error) {
+            var errorCode = error.code;
+            console.log(error)
+            if(errorCode == "auth/user-not-found")
+                alert("Error: There is no user with this email, please sign up to continue")
+            if(errorCode == "auth/invalid-email")
+                alert("Pease fill in the email field with the email associated with your account in order to get a password reset email")
+          });
+    }catch{
+
+    }
+}
