@@ -100,13 +100,13 @@ export default function FAQ() {
             <AccordionDetails className={classes.description}>
             <ul>
                 <li>
-                    Frontend: React JS, CSS, Material UI, and Redux (will be implemented later)
+                    Frontend: React JS, CSS, Material UI, and Redux
                 </li>
                 <li>
                     API: axios
                 </li>
                 <li>
-                    Backend: Firebase Firestore (will be implemented later), and TMDB
+                    Backend: Firebase Firestore, and TMDB
                 </li>
             </ul>
             </AccordionDetails>
