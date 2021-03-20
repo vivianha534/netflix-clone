@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./NavBar.css"
 import SearchIcon from "@material-ui/icons/Search"
 import NotificationsIcon from "@material-ui/icons/Notifications"
+import {Link} from "react-router-dom"
 
 const searchStyle = {
     color: "white",
@@ -9,7 +10,8 @@ const searchStyle = {
 
 const NavBar = () => {
     const[show, handleShow] = useState(false)
-
+    const _fnEmptyFunctionPointer = ()=>{};
+    
     //scroll listeners so that when we scroll down header gets a black background
     useEffect(()=>{
         window.addEventListener("scroll", () =>{
@@ -20,18 +22,20 @@ const NavBar = () => {
 
         //everytime useEffect loads, remove the listeners so that you don't have a bunch of listeners
         return()=>{
-            window.removeEventListener("scroll")
+            window.removeEventListener("scroll", _fnEmptyFunctionPointer)
         }
     },[])
 
     return (
         <div className={`nav ${show && "navBlack"}`}>
             <div className="leftSide">
-                <img
-                    className="navLogo"
-                    src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png"
-                    alt="Netflix logo"
-                />
+                <Link to = "/">
+                    <img
+                        className="navLogo"
+                        src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png"
+                        alt="Netflix logo"
+                    />
+                </Link>
                 <p className="leftText">HOME</p>
                 <p className="leftText">TV SHOWS</p>
                 <p className="leftText">MOVIES</p>
