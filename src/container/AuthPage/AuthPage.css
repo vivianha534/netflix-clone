@@ -1,0 +1,28 @@
+.darkerImageOverlay{
+    background: rgba(0,0,0, 0.75);
+    height:100%;
+    width: 100%;
+}
+
+.authPage{
+    height: 100vh;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+}
+
+.authForm{
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    margin-top: -100px; /* Negative half of height. */
+    margin-left: -250px; /* Negative half of width. */
+}
+
+.authLogo{
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    width: 150px;
+    object-fit:contain;
+}
