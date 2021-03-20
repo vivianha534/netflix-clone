@@ -1,5 +1,8 @@
 # Currently Deployed At:
 https://netflix-clone-8b751.web.app/
+To make changes to deployed site:
+1. npm run build
+2. firebase deploy
 
 # Getting Started with Create React App
 
