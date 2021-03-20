@@ -1,6 +1,5 @@
 import React from 'react'
 import Auth from "../../components/Authentication/Auth.js"
-import NavBar from "../../components/NavFooter/NavBar/NavBar.js"
 import "./AuthPage.css"
 import {Link} from "react-router-dom"
 
