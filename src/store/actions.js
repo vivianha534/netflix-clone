@@ -8,18 +8,19 @@ export const signIn = (formData, history) => async(dispatch) => {
         fireAuth.signInWithEmailAndPassword(formData.email, formData.password)
             .then((userCredential) =>{
                 var user = userCredential.user;
+                dispatch({type: AUTH, formData})
+                history.push('/')
             })
             .catch((error) =>{
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 console.log("error code:", errorCode, " error message:", errorMessage)
+                if(errorCode == "auth/user-not-found")
+                    alert("Error: user does not exist, please sign up to continue")
+                if(errorCode == "auth/wrong-password")
+                    alert("Error: Incorrect Password, try again")
             })
 
-            console.log("action:" , formData)
-
-        dispatch({type: AUTH, formData})
-
-        history.push('/')
     }catch(error){
         console.log(error)
     }
@@ -30,16 +31,17 @@ export const signUp = (formData, history) => async(dispatch) => {
         fireAuth.createUserWithEmailAndPassword(formData.email, formData.password)
             .then((userCredential)=>{
                 var user = userCredential.user
+                dispatch({type: AUTH, formData})
+                history.push('/')
             })
             .catch((error) =>{
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 console.log("error code:", errorCode, " error message:", errorMessage)
+                if(errorCode == "auth/email-already-in-use")
+                    alert("Error: This user already exists, please sign in to continue")
             })
-
-        dispatch({type: AUTH, formData})
         
-        history.push('/')
     }catch(error){
         console.log(error)
     }
