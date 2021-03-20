@@ -31,12 +31,16 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
   },
   description:{
+    display: "block",
     backgroundColor: "#242424",
     color: "white",
   },
   contactLink:{
       marginTop: "14px",
       paddingLeft: "10px",
+  },
+  listItem:{
+      marginBottom: "10px",
   }
 }));
 
@@ -79,6 +83,64 @@ export default function FAQ() {
             aria-controls="panel2bh-content"
             id="panel2bh-header"
             >
+            <Typography className={classes.heading}>What features does this clone have?</Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.description}>
+                <Typography style={{marginBottom: "20px"}}>Glad you asked! This clone currently has the following features:</Typography>
+                <ul>
+                    <li>
+                        Authentication features
+                    </li>
+                        <ul>
+                            <li className={classes.listItem}>
+                                "forgot password" option will send a reset link to your email!
+                            </li>
+                            <li className={classes.listItem}>
+                                If you try to sign in with a non valid email, you'll get an error message.
+                            </li>
+                            <li className={classes.listItem}>
+                                If you try to sign up with an email that's already associated with a user, you'll get an error message.
+                            </li>
+                            <li className={classes.listItem}>
+                                Users are able to sign in and out, and the content they are able to access is restricted
+                                depending on whether or not they're signed in. (ie. signed in users can access movies but not the
+                                authentication page, and signed out users are abl to access authentication but not movies) The landing
+                                page (which you're currently on), also dynamically changes depending on whether or not you are signed in!
+                            </li>
+                        </ul>
+                    <li>
+                        Movie Page
+                    </li>
+                        <ul>
+                            <li className={classes.listItem}>
+                                Navigation Bar will change background colors once you scroll down 100 pixels
+                            </li>
+                            <li className={classes.listItem}>
+                                The featured movie will change with every refresh!
+                            </li>
+                            <li  className={classes.listItem}>
+                                If you hover over a movie poster, it will enlarge.
+                            </li>
+                            <li>
+                                These movies are the most up to date! Powered by TMDB, Netflix Clone's selection of movies automatically
+                                updates!
+                            </li>
+                            <li className={classes.listItem}>
+                                There are several different genres available for you to check out. And if you want to find
+                                out more about a movie, click on it's image, and if there's a trailer available, it will
+                                start to play.
+                            </li>
+                        </ul>
+                </ul>
+            </AccordionDetails>
+        </Accordion>
+        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+            <AccordionSummary
+            className= {classes.accordionSummary}
+            expandIcon={<ExpandMoreIcon style={{color: "white"}}/>}
+            aria-controls="panel3bh-content"
+            id="panel3bh-header"
+            >
             <Typography className={classes.heading}>Why did you build this Netflix clone?</Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.description}>
@@ -88,12 +150,12 @@ export default function FAQ() {
             </Typography>
             </AccordionDetails>
         </Accordion>
-        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
             <AccordionSummary
             className= {classes.accordionSummary}
             expandIcon={<ExpandMoreIcon style={{color: "white"}}/>}
-            aria-controls="panel3bh-content"
-            id="panel3bh-header"
+            aria-controls="panel4bh-content"
+            id="panel4bh-header"
             >
             <Typography className={classes.heading}>What technology did you use?</Typography>
             </AccordionSummary>
@@ -111,12 +173,12 @@ export default function FAQ() {
             </ul>
             </AccordionDetails>
         </Accordion>
-        <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+        <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
             <AccordionSummary
             className= {classes.accordionSummary}
             expandIcon={<ExpandMoreIcon style={{color: "white"}}/>}
-            aria-controls="panel4bh-content"
-            id="panel4bh-header"
+            aria-controls="panel5bh-content"
+            id="panel5bh-header"
             >
             <Typography className={classes.heading}>Where can I get in contact with you?</Typography>
             </AccordionSummary>
